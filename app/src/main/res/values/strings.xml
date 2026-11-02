@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AssistantVoiceRecorder</string>
+    <string name="recording_channel_name">Active recording</string>
+    <string name="recording_notification_title">Recording meeting</string>
+    <string name="recording_notification_text">Tap Stop when your meeting ends.</string>
+    <string name="stop_recording">Stop</string>
+</resources>

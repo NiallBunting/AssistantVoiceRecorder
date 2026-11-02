@@ -1,0 +1,4 @@
+Initial F-Droid release.
+
+Record meetings from the Digital Assistant, save them to a chosen folder, play
+them back with an audio waveform, and optionally upload to a configured server.

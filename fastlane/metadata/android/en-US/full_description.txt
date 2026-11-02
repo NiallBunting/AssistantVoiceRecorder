@@ -1,0 +1,12 @@
+AssistantVoiceRecorder is a local-first meeting recorder for Android.
+
+Choose a folder for recordings, then select AssistantVoiceRecorder as your
+Digital Assistant. Invoking the assistant starts a microphone recording and
+shows a persistent notification while it is active.
+
+Recordings are stored in your selected folder as M4A audio files. You can play
+them back at different speeds and delete them from the app. Optional uploads
+can send recording metadata and audio to a server that you configure yourself.
+
+The app cannot record protected phone-call audio. If a call is using the
+microphone, it stops rather than creating a silent recording.

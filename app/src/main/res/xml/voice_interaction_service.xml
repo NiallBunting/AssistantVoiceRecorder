@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<voice-interaction-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:sessionService="com.niallbunting.assistantvoicerecorder.assistant.AssistantSessionService"
+    android:recognitionService="com.niallbunting.assistantvoicerecorder.assistant.NoOpRecognitionService"
+    android:settingsActivity="com.niallbunting.assistantvoicerecorder.SettingsActivity"
+    android:supportsAssist="true" />
