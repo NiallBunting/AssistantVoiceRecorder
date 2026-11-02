@@ -8,4 +8,17 @@ object RecordingTiming {
 
     fun retentionCutoff(now: Long, retentionDays: Int): Long =
         now - retentionDays.coerceAtLeast(1).toLong() * MILLIS_PER_DAY
+
+    fun formatDuration(durationMs: Long): String {
+        val totalSeconds = (durationMs.coerceAtLeast(0L) / 1_000L)
+        val seconds = totalSeconds % 60
+        val totalMinutes = totalSeconds / 60
+        val minutes = totalMinutes % 60
+        val hours = totalMinutes / 60
+        return when {
+            hours > 0 -> "${hours}h ${minutes}m ${seconds}s"
+            minutes > 0 -> "${minutes}m ${seconds}s"
+            else -> "${seconds}s"
+        }
+    }
 }

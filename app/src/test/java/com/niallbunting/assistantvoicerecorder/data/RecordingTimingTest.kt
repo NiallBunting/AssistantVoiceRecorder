@@ -26,4 +26,12 @@ class RecordingTimingTest {
         assertEquals(now - RecordingTiming.MILLIS_PER_DAY, RecordingTiming.retentionCutoff(now, 0))
         assertEquals(now - RecordingTiming.MILLIS_PER_DAY, RecordingTiming.retentionCutoff(now, -7))
     }
+
+    @Test
+    fun duration_format_uses_seconds_minutes_and_hours_when_needed() {
+        assertEquals("59s", RecordingTiming.formatDuration(59_999L))
+        assertEquals("1m 0s", RecordingTiming.formatDuration(60_000L))
+        assertEquals("1m 5s", RecordingTiming.formatDuration(65_000L))
+        assertEquals("1h 1m 2s", RecordingTiming.formatDuration(3_662_000L))
+    }
 }

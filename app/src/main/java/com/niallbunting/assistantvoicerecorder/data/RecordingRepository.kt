@@ -18,6 +18,11 @@ class RecordingRepository(context: Context) {
             buildList { while (c.moveToNext()) add(c.toRecording()) }
         }
     }
+    suspend fun unfinishedAac(): List<Recording> = io {
+        db.readableDatabase.query("recordings", null, "uri LIKE ?", arrayOf("%.aac"), null, null, null).use { c ->
+            buildList { while (c.moveToNext()) add(c.toRecording()) }
+        }
+    }
     suspend fun byId(id: String): Recording? = io {
         db.readableDatabase.query("recordings", null, "id=?", arrayOf(id), null, null, null).use { c ->
             if (c.moveToFirst()) c.toRecording() else null
@@ -32,6 +37,9 @@ class RecordingRepository(context: Context) {
     }
     suspend fun updateDuration(id: String, duration: Long) = io {
         db.writableDatabase.update("recordings", ContentValues().apply { put("duration_ms", duration) }, "id=?", arrayOf(id))
+    }
+    suspend fun updateFile(id: String, filename: String, uri: String) = io {
+        db.writableDatabase.update("recordings", ContentValues().apply { put("filename", filename); put("uri", uri) }, "id=?", arrayOf(id))
     }
     suspend fun delete(id: String) = io { db.writableDatabase.delete("recordings", "id=?", arrayOf(id)) }
     suspend fun eligibleForDeletion(cutoff: Long): List<Recording> = io {

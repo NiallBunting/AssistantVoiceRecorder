@@ -43,6 +43,7 @@
             android:theme="@style/Theme.AssistantVoiceRecorder" />
         <service
             android:name=".assistant.AssistantService"
+            android:directBootAware="true"
             android:exported="true"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_VOICE_INTERACTION">
@@ -53,12 +54,14 @@
         </service>
         <service
             android:name=".assistant.AssistantSessionService"
+            android:directBootAware="true"
             android:exported="true"
             android:permission="android.permission.BIND_VOICE_INTERACTION">
             <intent-filter><action android:name="android.service.voice.VoiceInteractionSessionService" /></intent-filter>
         </service>
         <service
             android:name=".assistant.NoOpRecognitionService"
+            android:directBootAware="true"
             android:exported="true"
             android:permission="android.permission.BIND_SPEECH_RECOGNITION_SERVICE">
             <intent-filter>
